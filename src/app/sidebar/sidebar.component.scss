@@ -1,0 +1,88 @@
+.sidebar {
+  padding-top: 48px;
+}
+.sidebar__profile {
+  margin-bottom: 48px;
+}
+.sidebar__menu {}
+
+.profile {
+  position: relative;
+  width: 95px;
+  height: 95px;
+
+  .profile__avatar {
+    border-radius: 50%;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .profile__action {
+    position: absolute;
+    right: -8px;
+    bottom: -4px;
+
+    button {
+      display: block;
+      width: 42px;
+      height: 42px;
+      margin: 0;
+      padding: 0;
+      border: none;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 0 10px transparentize(#000, .9);
+      cursor: pointer;
+
+      font-size: 16px;
+      line-height: 42px;
+      text-align: center;
+
+      &:focus,
+      &:active {
+        outline: none;
+      }
+
+      .mat-icon {
+        color: #546e7a;
+      }
+    }
+  }
+}
+
+.main-menu {
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: block;
+    margin: 0;
+    padding: 12px 0;
+    text-align: center;
+
+    a {
+      display: inline-block;
+      padding: 0 6px;
+      font-size: 12px;
+      font-weight: bold;
+      line-height: 24px;
+      color: #36454d;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-bottom: solid 3px transparent;
+      transition: 0.3s border-color;
+
+      &.active {
+        border-bottom: solid 3px #5c8e29;
+      }
+    }
+  }
+}

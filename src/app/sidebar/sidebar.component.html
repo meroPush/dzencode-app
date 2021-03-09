@@ -1,0 +1,33 @@
+<div class="sidebar">
+  <div class="sidebar__profile">
+    <div class="profile m-auto">
+      <div class="profile__avatar">
+        <img src="//via.placeholder.com/95" alt="">
+      </div>
+      <div class="profile__action">
+        <button routerLink="/settings">
+          <mat-icon [inline]="true">settings</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="sidebar__menu">
+    <ul class="main-menu">
+      <li>
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Приход</a>
+      </li>
+      <li>
+        <a routerLink="/groups" routerLinkActive="active">Группы</a>
+      </li>
+      <li>
+        <a routerLink="/products" routerLinkActive="active">Продукты</a>
+      </li>
+      <li>
+        <a routerLink="/users" routerLinkActive="active">Пользователи</a>
+      </li>
+      <li>
+        <a routerLink="/settings" routerLinkActive="active">Настройки</a>
+      </li>
+    </ul>
+  </div>
+</div>
