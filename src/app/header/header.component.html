@@ -1,0 +1,37 @@
+<div class="header d-flex align-items-center">
+  <div class="container">
+    <div class="row align-items-center">
+
+      <div class="col-6 col-md-3">
+        <div class="header-logo">
+          <a routerLink="/" title="">
+            <img src="../assets/logo.png" alt="">
+          </a>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="header-search">
+          <input placeholder="Search text ...">
+        </div>
+      </div>
+      <div class="col-md-6 d-none d-md-flex justify-content-end">
+        <div class="header-block header-block_date">
+          <div class="header-block__title">Today</div>
+          <div class="header-block__content d-flex align-items-center">
+            <div>
+              <b>{{date$ | async | date:'dd'}}</b> {{date$ | async | date: 'MMM, y'}}
+            </div>
+            <mat-icon [inline]="true">query_builder</mat-icon>
+            <div>
+              {{date$ | async | date:'HH:mm:ss'}}
+            </div>
+          </div>
+        </div>
+        <div class="header-block header-block_session">
+          <div class="header-block__title">Session</div>
+          <div class="header-block__content"><b>0</b> active</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
