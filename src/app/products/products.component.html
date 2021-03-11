@@ -1,1 +1,24 @@
-<p>products works!</p>
+<div class="d-flex align-items-center flex-wrap">
+  <div class="page-title">Продукты / {{(products$ | async).length}}</div>
+  <div class="product-filter">
+    <form [formGroup]="filterFg">
+      <label>
+        <span>Тип:</span>
+        <select formControlName="type">
+          <option value="">Все</option>
+          <option *ngFor="let type of productsTypes$ | async" [value]="type">{{type}}</option>
+        </select>
+      </label>
+    </form>
+  </div>
+</div>
+
+<div class="products-container">
+  <div class="table-responsive d-flex flex-column flex-wrap">
+    <app-products-card *ngFor="let product of products$ | async; let isOdd = odd"
+                       [product]="product"
+                       [isOdd]="isOdd"
+                       (delete)="deleteProduct($event)"
+    ></app-products-card>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +19,10 @@ import {
   IS_PRODUCTION_TOKEN
 } from "./app.config";
 import {HttpClientModule} from "@angular/common/http";
+import {registerLocaleData} from "@angular/common";
+import localeRu from '@angular/common/locales/ru';
+
+registerLocaleData(localeRu, 'ru');
 
 @NgModule({
   declarations: [
@@ -48,6 +52,10 @@ import {HttpClientModule} from "@angular/common/http";
       provide: API_URL_TOKEN,
       useValue: API_URL
     },
+    {
+      provide: LOCALE_ID,
+      useValue: 'ru'
+    }
   ],
   bootstrap: [AppComponent]
 })

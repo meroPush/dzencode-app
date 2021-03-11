@@ -10,7 +10,7 @@ const reducer = createReducer(
     return [...state];
   }),
   on(getProductsSuccess, (state: IProduct[], {payload}) => {
-    return [...state, ...payload];
+    return [...payload];
   }),
   on(getProductsError, (state: IProduct[]) => {
     return [...state];

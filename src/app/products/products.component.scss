@@ -1,0 +1,38 @@
+.page-title {
+  margin-right: 36px;
+  margin-bottom: 24px;
+}
+.product-filter {
+  label {
+    display: block;
+    margin-bottom: 24px;
+
+    span {
+      display: inline-block;
+      font-size: 12px;
+      line-height: 30px;
+      color: #90a4ae;
+      margin-right: 8px;
+    }
+
+    select {
+      display: inline-block;
+      width: 300px;
+      height: 30px;
+      padding: 0 12px;
+      border: solid 1px #cfd8dc;
+      border-radius: 5px;
+      background: #fff;
+      color: #2c3c44;
+
+      &:active,
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
+
+.products-container {
+  margin-top: 40px;
+}

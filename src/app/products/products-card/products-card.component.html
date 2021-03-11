@@ -1,0 +1,28 @@
+<div class="product d-flex flex-nowrap align-items-center" [ngClass]="{'odd': isOdd}">
+  <div class="product__col product-dot" [ngClass]="{'new': product.isNew}"></div>
+  <div class="product__col product-img">
+    <img src="{{product.photo}}" alt="{{product.title}}">
+  </div>
+  <div class="product__col product-info">
+    <div class="product-info__title">{{product.title}}</div>
+    <div class="product-info__serial">{{product.serialNumber}}</div>
+  </div>
+  <div class="product__col product-status" [ngClass]="{'new': product.isNew}">
+    {{product.isNew ? 'Свободен' : 'В ремонте'}}
+  </div>
+  <div class="product__col product-spec">{{product.specification}}</div>
+  <div class="product__col product-price">
+    <div *ngFor="let price of product.price | orderBy" [ngClass]="{'default': price.isDefault}" class="product-price__line">
+      {{price.value | currency: price.symbol: '':''}}&nbsp;{{price.symbol}}
+    </div>
+  </div>
+  <div class="product__col product-guarantee">
+    <div class="product-guarantee__start">с: {{product.guarantee.start | date: 'mm / yy' : 'UTC'}}</div>
+    <div class="product-guarantee__end">по: {{product.guarantee.end | date: 'dd / MMM / y' : 'UTC'}}</div>
+  </div>
+  <div class="product__col product-action">
+    <button (click)="deleteProduct()">
+      <mat-icon [inline]="true">delete</mat-icon>
+    </button>
+  </div>
+</div>

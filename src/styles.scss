@@ -12,4 +12,14 @@ body {
 }
 body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: #2c3c44;
+}
+
+.page-title {
+  font-size: 34px;
+  font-weight: bold;
+}
+
+.table-responsive {
+  overflow-x: auto;
 }
