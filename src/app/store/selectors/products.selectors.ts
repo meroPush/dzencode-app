@@ -1,8 +1,8 @@
 import {createFeatureSelector, createSelector} from "@ngrx/store";
-import {IState} from "../../interfaces/store.interface";
+import {IRootState} from "../../interfaces/store.interface";
 import {IProduct} from "../../interfaces/products.interface";
 
-export const selectProducts = createFeatureSelector<IState, IProduct[]>('products');
+export const selectProducts = createFeatureSelector<IRootState, IProduct[]>('products');
 
 export const productsFilter = createSelector(
   selectProducts,

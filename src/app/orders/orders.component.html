@@ -1,0 +1,59 @@
+<div class="page">
+  <div class="page-header d-flex align-items-center">
+    <div class="page-header__action page-header-action">
+      <button class="page-header-action__add">+</button>
+    </div>
+    <div class="page-header__title">
+      <h1>Приходы / {{ordersTotal$ | async}}</h1>
+    </div>
+  </div>
+  <div class="page-content">
+    <div class="row">
+      <div [ngClass]="{'col-4': showDetails, 'col-12': !(showDetails)}">
+        <div class="list-items">
+          <div class="item d-flex align-items-center" *ngFor="let order of orders$ | async" [routerLink]="[order.id]" [ngClass]="{'select': order.id === selectOrder}">
+            <div class="item-col-1 flex-grow-1" *ngIf="!showDetails">
+              <div class="item-title">{{order.title}}</div>
+            </div>
+            <div class="item-col-2">
+              <div class="item-amount d-flex flex-nowrap align-items-center">
+                <div class="item-amount__icon">
+                  <mat-icon>format_list_bulleted</mat-icon>
+                </div>
+                <div class="item-amount__content">
+                  <b>{{getTotalProducts(order.products)}}</b><br>
+                  Продуктов
+                </div>
+              </div>
+            </div>
+            <div class="item-col-3">
+              <div class="item-date">
+                {{order.date | date: 'dd / MMM / y' : 'UTC'}}
+              </div>
+            </div>
+            <div class="item-col-4" *ngIf="!showDetails">
+              <div class="item-price">
+                <div class="item-price__line" *ngFor="let price of getTotalPrice(order.products)  | orderBy" [ngClass]="{'default': price.isDefault}">
+                  {{price.value | currency: price.symbol: (price.symbol === 'USD' ? 'symbol' : 'code')}}
+                </div>
+              </div>
+            </div>
+            <div class="item-col-5" *ngIf="!showDetails">
+              <div class="item-action">
+                <button (click)="removeOrder(order)">
+                  <mat-icon [inline]="true">delete</mat-icon>
+                </button>
+              </div>
+            </div>
+            <div class="item-icon d-flex align-items-center">
+              <mat-icon [inline]="true">keyboard_arrow_right</mat-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-8" *ngIf="showDetails">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

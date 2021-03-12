@@ -3,7 +3,7 @@ import {Store} from "@ngrx/store";
 import {getProductsPending} from "../store/actions/products.actions";
 import {Observable, Subject} from "rxjs";
 import {IProduct} from "../interfaces/products.interface";
-import {IState} from "../interfaces/store.interface";
+import {IRootState} from "../interfaces/store.interface";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {productsFilter, productsTypes} from "../store/selectors/products.selectors";
 import {takeUntil} from "rxjs/operators";
@@ -20,7 +20,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   public productsTypes$: Observable<string[]>;
 
   constructor(
-    private readonly store: Store<IState>,
+    private readonly store: Store<IRootState>,
     private formBuilder: FormBuilder,
   ) {
     this.products$ = this.store.select('products');

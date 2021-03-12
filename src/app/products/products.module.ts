@@ -6,8 +6,8 @@ import { ProductsComponent } from './products.component';
 import {ProductsFilterPipe} from "./products-filter.pipe";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ProductsCardComponent } from './products-card/products-card.component';
-import {OrderByPipe} from "../pipes/order-by.pipe";
 import {MatIconModule} from "@angular/material/icon";
+import {SharedModule} from "../shared/shared.module";
 
 
 @NgModule({
@@ -15,14 +15,14 @@ import {MatIconModule} from "@angular/material/icon";
     ProductsComponent,
     ProductsFilterPipe,
     ProductsCardComponent,
-    OrderByPipe
   ],
   imports: [
     CommonModule,
     ProductsRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    MatIconModule
+    MatIconModule,
+    SharedModule
   ]
 })
 export class ProductsModule { }

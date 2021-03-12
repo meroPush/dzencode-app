@@ -1,0 +1,132 @@
+.list-items {
+  .item {
+    position: relative;
+    overflow: hidden;
+    height: 70px;
+    margin-top: 10px;
+    padding: 14px 36px 14px 18px;
+    border: solid 1px #cfd8dc;
+    border-radius: 5px;
+    background: #fff;
+    transition: 0.3s box-shadow;
+    cursor: pointer;
+
+    &:first-child {
+      margin-top: 0;
+    }
+    &:focus {
+      outline: none;
+    }
+
+    .item-icon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 36px;
+      background: #cfd8dc;
+      opacity: 0;
+      transition: 0.3s opacity;
+      font-size: 18px;
+      color: #fff;
+      text-align: center;
+    }
+
+    &.select {
+      box-shadow: 0 0 15px transparentize(#000, .8);
+
+      .item-icon {
+        opacity: 1;
+      }
+    }
+
+    .item-col-1,
+    .item-col-2,
+    .item-col-3,
+    .item-col-4 {
+      padding: 0 18px;
+    }
+
+    .item-title {
+      overflow: hidden;
+      max-height: 42px;
+      margin-bottom: 6px;
+      font-size: 18px;
+      line-height: 1.2;
+      text-decoration: underline;
+      text-decoration-color: #d7d9da;
+      color: #546e7a;
+    }
+    .item-date {
+      font-size: 14px;
+      color: #546e7a;
+    }
+    .item-price {
+      width: 100px;
+
+      .item-price__line {
+        font-size: 10px;
+        color: #90a4ae;
+
+        &.default {
+          font-size: 14px;
+          color: #546e7a;
+        }
+      }
+    }
+    .item-action {
+      button {
+        display: inline-block;
+        box-sizing: border-box;
+        width: 40px;
+        height: 40px;
+        padding: 12px;
+        border: none;
+        background: transparent;
+        font-size: 14px;
+        color: #90a4ae;
+        cursor: pointer;
+        transition: 0.3s color;
+
+        &:hover {
+          color: #f00;
+        }
+
+        &:active,
+        &:focus {
+          outline: none;
+        }
+
+        .mat-icon {
+          width: 13px;
+          height: 13px;
+          vertical-align: center;
+        }
+      }
+    }
+    .item-amount {
+      .item-amount__icon {
+        width: 42px;
+        height: 42px;
+        margin-right: 18px;
+        padding: 8px;
+        border: solid 1px #cfd8dc;
+        border-radius: 50%;
+
+        font-size: 0;
+        line-height: 0;
+        color: #546e7a;
+      }
+      .item-amount__content {
+        font-size: 14px;
+        color: #90a4ae;
+
+        b {
+          font-size: 18px;
+          font-weight: 500;
+          color: #546e7a;
+        }
+      }
+    }
+  }
+}

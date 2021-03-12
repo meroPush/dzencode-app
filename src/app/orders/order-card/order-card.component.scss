@@ -1,0 +1,145 @@
+.order-card {
+  position: relative;
+  border: solid 1px #cfd8dc;
+  border-radius: 5px;
+  background: #fff;
+
+  .order-card__action {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: -21px -21px 0 0;
+
+    button {
+      width: 42px;
+      height: 42px;
+      border: none;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 0 10px transparentize(#000, .8);
+      cursor: pointer;
+      font-size: 18px;
+      color: #90a4ae;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .order-card-header {
+    padding: 24px 38px;
+
+    .order-card-header__title {
+      font-size: 24px;
+      font-weight: bold;
+    }
+  }
+}
+
+.product {
+  position: relative;
+  padding: 12px;
+  border-top: solid 1px #cfd8dc;
+  background: #fff;
+
+  &:hover {
+    box-shadow: 0 0 25px transparentize(#000, 0.7);
+    z-index: 2;
+  }
+
+  .product__col {
+    margin-left: 24px;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+
+  .product-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #2c3c44;
+
+    &.new {
+      background: #cddc39;
+    }
+  }
+  .product-img {
+    width: 45px;
+    font-size: 0;
+    line-height: 0;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .product-info {
+    min-width: 200px;
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    .product-info__title {
+      overflow: hidden;
+      max-height: 42px;
+      margin-bottom: 6px;
+      font-size: 18px;
+      line-height: 1.2;
+      text-decoration: underline;
+      text-decoration-color: #d7d9da;
+    }
+
+    .product-info__serial {
+      font-size: 12px;
+      text-transform: uppercase;
+      color: #90a4ae;
+    }
+  }
+  .product-status {
+    width: 100px;
+
+    &.new {
+      color: #cddc39;
+    }
+  }
+  .product-action {
+    button {
+      display: inline-block;
+      box-sizing: border-box;
+      width: 40px;
+      height: 40px;
+      padding: 12px;
+      border: none;
+      background: transparent;
+      font-size: 14px;
+      color: #90a4ae;
+      cursor: pointer;
+      transition: 0.3s color;
+
+      &:hover {
+        color: #f00;
+      }
+
+      &:active,
+      &:focus {
+        outline: none;
+      }
+
+      .mat-icon {
+        width: 13px;
+        height: 13px;
+        vertical-align: center;
+      }
+    }
+  }
+  .product-amount {
+    font-size: 14px;
+    color: #90a4ae;
+
+    b {
+      font-size: 18px;
+      font-weight: 500;
+      color: #546e7a;
+    }
+  }
+}

@@ -23,3 +23,38 @@ body {
 .table-responsive {
   overflow-x: auto;
 }
+
+.page-header {
+  .page-header__action {
+    margin-right: 22px;
+  }
+  .page-header-action {
+    .page-header-action__add {
+      width: 40px;
+      height: 40px;
+      border: solid 4px #77a54b;
+      border-radius: 50%;
+      background: #8bc34a;
+      box-shadow: 2px 2px 10px transparentize(#000, .85);
+
+      font-size: 14px;
+      color: #fff;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .page-header__title {
+    h1 {
+      margin: 0;
+      padding: 0;
+      font-size: 36px;
+    }
+  }
+}
+
+.page-content {
+  margin-top: 60px;
+}

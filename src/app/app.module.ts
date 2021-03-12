@@ -21,6 +21,7 @@ import {
 import {HttpClientModule} from "@angular/common/http";
 import {registerLocaleData} from "@angular/common";
 import localeRu from '@angular/common/locales/ru';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 registerLocaleData(localeRu, 'ru');
 
@@ -41,7 +42,8 @@ registerLocaleData(localeRu, 'ru');
       maxAge: 25,
       logOnly: environment.production
     }),
-    EffectsModule.forRoot(effects)
+    EffectsModule.forRoot(effects),
+    StoreRouterConnectingModule.forRoot()
   ],
   providers: [
     {
