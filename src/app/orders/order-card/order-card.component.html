@@ -22,7 +22,7 @@
             Продуктов
           </div>
           <div class="product__col product-action">
-            <button (click)="removeProductFromOrder(product)">
+            <button (click)="removeProductFromOrder($event, product)">
               <mat-icon [inline]="true">delete</mat-icon>
             </button>
           </div>

@@ -8,6 +8,8 @@ import {selectAllOrders, selectOrderTotal} from "../store/selectors/orders.selec
 import {selectRouteParam} from "../store/selectors/router.selectors";
 import {takeUntil} from "rxjs/operators";
 import {IProductPrice} from "../interfaces/products.interface";
+import {MatDialog} from "@angular/material/dialog";
+import {DialogConfirmComponent} from "../shared/dialog-confirm/dialog-confirm.component";
 
 @Component({
   selector: 'app-orders',
@@ -23,6 +25,7 @@ export class OrdersComponent implements OnInit, OnDestroy {
 
   constructor(
     private readonly store: Store<IRootState>,
+    public dialog: MatDialog,
   ) {}
 
   ngOnInit(): void {
@@ -72,8 +75,20 @@ export class OrdersComponent implements OnInit, OnDestroy {
     ]
   }
 
-  removeOrder(order: IOrder): void {
-    this.store.dispatch(removeOrder({order}))
+  removeOrder($event, order: IOrder): void {
+    $event.stopPropagation();
+
+    const dialogRef = this.dialog.open(DialogConfirmComponent, {
+      data: {
+        title: 'Вы уверены, что хотите удалить этот приход?',
+        data: order
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.store.dispatch(removeOrder({order}))
+      }
+    });
   }
 
   ngOnDestroy(): void {

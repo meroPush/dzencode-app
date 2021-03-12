@@ -7,6 +7,8 @@ import {IRootState} from "../../interfaces/store.interface";
 import {removeProductFromOrder, selectOrder} from "../../store/actions/orders.actions";
 import {selectOrderById, selectOrderProducts} from "../../store/selectors/orders.selectors";
 import {takeUntil} from "rxjs/operators";
+import {DialogConfirmComponent} from "../../shared/dialog-confirm/dialog-confirm.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-order-card',
@@ -20,7 +22,8 @@ export class OrderCardComponent implements OnInit, OnDestroy {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private readonly store: Store<IRootState>
+    private readonly store: Store<IRootState>,
+    public dialog: MatDialog,
   ) {}
 
   ngOnInit(): void {
@@ -31,8 +34,20 @@ export class OrderCardComponent implements OnInit, OnDestroy {
     })
   }
 
-  removeProductFromOrder(product: IOrderProduct) {
-    this.store.dispatch(removeProductFromOrder({order: this.order, product}))
+  removeProductFromOrder($event, product: IOrderProduct) {
+    $event.stopPropagation();
+
+    const dialogRef = this.dialog.open(DialogConfirmComponent, {
+      data: {
+        title: 'Вы уверены, что хотите удалить этот товар?',
+        data: product
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.store.dispatch(removeProductFromOrder({order: this.order, product}))
+      }
+    });
   }
 
   ngOnDestroy(): void {

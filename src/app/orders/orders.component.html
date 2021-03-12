@@ -40,7 +40,7 @@
             </div>
             <div class="item-col-5" *ngIf="!showDetails">
               <div class="item-action">
-                <button (click)="removeOrder(order)">
+                <button (click)="removeOrder($event, order)">
                   <mat-icon [inline]="true">delete</mat-icon>
                 </button>
               </div>
