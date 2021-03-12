@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {interval, BehaviorSubject} from "rxjs";
+import {interval, BehaviorSubject, Observable} from "rxjs";
+import {SessionService} from "../service/session.service";
 
 @Component({
   selector: 'app-header',
@@ -8,8 +9,11 @@ import {interval, BehaviorSubject} from "rxjs";
 })
 export class HeaderComponent implements OnInit {
   date$ = new BehaviorSubject<Date>(new Date());
+  session$: Observable<number> = this.sessionService.getSession();
 
-  constructor() {
+  constructor(
+    public sessionService: SessionService
+  ) {
     interval(1000).subscribe(() => this.date$.next(new Date()));
   }
 

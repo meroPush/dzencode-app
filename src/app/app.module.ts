@@ -22,6 +22,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {registerLocaleData} from "@angular/common";
 import localeRu from '@angular/common/locales/ru';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import {SocketIoModule} from "ngx-socket-io";
 
 registerLocaleData(localeRu, 'ru');
 
@@ -43,7 +44,10 @@ registerLocaleData(localeRu, 'ru');
       logOnly: environment.production
     }),
     EffectsModule.forRoot(effects),
-    StoreRouterConnectingModule.forRoot()
+    StoreRouterConnectingModule.forRoot(),
+    SocketIoModule.forRoot({
+      url: API_URL,
+    })
   ],
   providers: [
     {
